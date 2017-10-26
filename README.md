@@ -17,9 +17,11 @@ This application has no use for a database at the moment, so there's no need to 
 Here's some example curl commands to exercise the application:
 
 From the example below:
+
 curl -H "Content-Type: application/json" -X POST -d '[{"name":"Toki","cards":[{"suit":"hearts","value":"10"},{"suit":"hearts","value":"2"},{"suit":"hearts","value":"4"},{"suit":"hearts","value":"J"},{"suit":"hearts","value":"A"}]},{"name":"Swiskar","cards":[{"suit":"clubs","value":"2"},{"suit":"hearts","value":"3"},{"suit":"diamonds","value":"4"},{"suit":"hearts","value":"6"},{"suit":"hearts","value":"5"}]},{"name":"Nathan"},{},{}]' http://0.0.0.0:3000/api/v1/calculate
 
 Two totally randomly generated players:
+
 curl -H "Content-Type: application/json" -X POST -d '[{},{}]' http://0.0.0.0:3000/api/v1/calculate
 
 # EXAMPLE
