@@ -40,7 +40,6 @@ GEM
       tzinfo (~> 1.1)
     arel (8.0.0)
     builder (3.2.3)
-    byebug (9.1.0)
     coderay (1.1.2)
     concurrent-ruby (1.0.5)
     crass (1.0.2)
@@ -130,7 +129,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  byebug
   listen (>= 3.0.5, < 3.2)
   pry-rails
   puma (~> 3.7)

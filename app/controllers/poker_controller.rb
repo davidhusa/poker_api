@@ -16,11 +16,13 @@ class PokerController < ApplicationController
 
   private
   def parse_calculation_params(params)
-    deck = Deck.new.shuffle # todo use this for random
+    deck = Deck.new.shuffle
     players = []
     errors = []
 
     return [players, ["No JSON data"]] unless params[:_json]
+
+    return [players, ["Too many players (Max 10)"]] if params[:_json].size > 10
 
     params[:_json].each do |player_hash|
       name = player_hash[:name] || default_player_name
@@ -112,31 +114,3 @@ class PokerController < ApplicationController
     return_hash
   end
 end
-
-#
-# [
-#   {
-#     "name": "Toki",
-#     "cards": [
-#       {"suit": "hearts", "value": "10"},
-#       {"suit": "hearts", "value": "2"},
-#       {"suit": "hearts", "value": "4"},
-#       {"suit": "hearts", "value": "J"},
-#       {"suit": "hearts", "value": "A"}
-#     ]
-#   },
-#   {
-#     "name": "Swiskar",
-#     "cards": [
-#       {"suit": "hearts", "value": "2"},
-#       {"suit": "spades", "value": "3"},
-#       {"suit": "clubs", "value": "4"},
-#       {"suit": "diamonds", "value": "5"},
-#       {"suit": "diamonds", "value": "6"}
-#     ]
-#   },
-#   {
-#     "name": "Murderface",
-#     "random": "true"
-#   }
-# ]

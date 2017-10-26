@@ -1,7 +1,6 @@
 class Hand
   include CardCollection
   include Comparable
-  attr_reader :last_score_calculation
 
   def self.generate(*cards)
     hand = new
@@ -27,5 +26,9 @@ class Hand
 
   def score_calculation
     @last_score_calculation = ScoreCalculation.new(self.cards)
+  end
+
+  def last_score_calculation
+     @last_score_calculation || score_calculation
   end
 end
