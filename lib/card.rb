@@ -3,10 +3,7 @@ class Card
   attr_reader :value, :suit
   SUITS = %i< H C D S >
   VALUES = %i< 2 3 4 5 6 7 8 9 10 J Q K A > # in order of value in Poker
-  def value_as_integer
-    VALUES.index(self.value)
-  end
-  
+
   def initialize(value:, suit:)
     raise "invalid value: #{value}" unless VALUES.include?(value.to_sym)
     raise "invalid suit: #{suit}"  unless SUITS.include?(suit.to_sym)
@@ -30,6 +27,10 @@ class Card
 
   def name
     "#{value_title} of #{suit_title}"
+  end
+
+  def value_as_integer
+    VALUES.index(self.value)
   end
 
   def <=>(other_card)

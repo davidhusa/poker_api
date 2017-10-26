@@ -24,12 +24,4 @@ class Deck
     raise "invalid hand" unless hand.class == Hand
     hand.add_card(self.cards.pop)
   end
-
-  def deal_hand(hand_size = 5)
-    hand = Hand.new
-    hand_size.times do
-      self.draw(hand)
-    end
-    hand
-  end
 end

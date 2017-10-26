@@ -32,6 +32,12 @@ class ScoreCalculation
     @non_scoring_high_cards = (cards - self.scoring_cards).sort {|x,y| y <=> x }
   end
 
+  #                                 0            1       2           3                  4           5        6             7                 8              #
+  SCORING_CARDS_NAME_FROM_SCORE = ["High Card", "Pair", "Two Pair", "Three of a Kind", "Straight", "Flush", "Full House", "Four of a Kind", "Straight Flush"]
+  def scoring_cards_name
+    SCORING_CARDS_NAME_FROM_SCORE[self.hand_value] if self.hand_value
+  end
+
   def inspect
     "#<ScoreCalculation: #{self.scoring_cards_name} [#{self.scoring_cards.map(&:name).join(', ')}] #{self.non_scoring_high_cards.map(&:name).join(', ')}>"
   end
@@ -64,12 +70,6 @@ class ScoreCalculation
     else
       -1
     end
-  end
-
-  #                     0            1       2           3                  4           5        6             7                 8              #
-  SCORING_CARDS_NAME = ["High Card", "Pair", "Two Pair", "Three of a Kind", "Straight", "Flush", "Full House", "Four of a Kind", "Straight Flush"]
-  def scoring_cards_name
-    SCORING_CARDS_NAME[self.hand_value] if self.hand_value
   end
 
   private

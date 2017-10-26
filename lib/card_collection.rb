@@ -24,9 +24,4 @@ module CardCollection
       false
     end
   end
-
-  def draw_from(other_collection)
-    raise "invalid collection" unless other_collection.class.included_modules.include?(CardCollection)
-    self.add_card(other_collection.cards.pop)
-  end
 end

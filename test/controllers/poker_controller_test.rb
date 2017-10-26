@@ -85,8 +85,7 @@ class PokerControllerTest < ActionDispatch::IntegrationTest
     assert_equal expected_response["winners"], response_body["winners"]
     assert_equal expected_response["hands"], response_body["hands"]
   end
- # "No JSON data" "Too many players (Max 10)" "Player \"#{name}\", "redundant card #{card.name}" "Player \"#{name}\", bad card data"  "Player \"#{name}\", hand too large" "Player \"#{name}\", hand too small"  "No players" 
-
+  
   test "Throws 'No JSON data' if there's no JSON data" do
     post calculate_url, params: nil, as: :json
 
