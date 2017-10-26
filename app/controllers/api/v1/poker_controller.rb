@@ -1,9 +1,4 @@
-class PokerController < ApplicationController
-  def index
-
-    render json: {welcome: 'Send POST request to /calculate with the Content-Type as "application/json", supply an array of objects with a name and cards. The name is a string, the cards are an array of strings describing cards'}
-  end
-
+class API::V1::PokerController < ApplicationController
   def calculate
     players, errors = parse_calculation_params(params)
 
