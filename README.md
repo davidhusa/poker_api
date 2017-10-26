@@ -24,7 +24,6 @@ curl -H "Content-Type: application/json" -X POST -d '[{},{}]' http://0.0.0.0:300
 
 # EXAMPLE
 Say you want to have a game with two players named Toki and Swiskar with known hands, one player named Nathan with an unknown hand, and two unnamed players with unknown hands. You'd pass an object like this:
-
 [  
   {  
     "name":"Toki",
